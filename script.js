@@ -40,6 +40,26 @@ function asset(path="") {
   return encodeURI(String(path).replace(/^\.?\//, ""));
 }
 
+// Builds a clean, readable card summary from a project's full markdown description.
+// - Uses only the FIRST paragraph (stops before "🛠️ Methodology" / "🎯 Key Results" / etc.)
+// - Strips leftover markdown characters (*_`#)
+// - If still too long, truncates at the nearest whole word (never mid-word/mid-heading)
+function getShortDescription(raw, limit = 180){
+  const text = String(raw || "").trim();
+  if(!text) return "";
+
+  // Paragraphs are separated by a blank line in the source data.
+  let firstParagraph = text.split(/\n\s*\n/)[0] || text;
+  firstParagraph = firstParagraph.replace(/[*_`#]/g, "").trim();
+
+  if(firstParagraph.length <= limit) return firstParagraph;
+
+  const truncated = firstParagraph.slice(0, limit);
+  const lastSpace = truncated.lastIndexOf(" ");
+  const clean = lastSpace > 40 ? truncated.slice(0, lastSpace) : truncated;
+  return clean.trim() + "…";
+}
+
 async function loadJSON(url){
   const res = await fetch(url, {cache:"no-store"});
   if(!res.ok) throw new Error(`${url}: HTTP ${res.status}`);
@@ -149,7 +169,7 @@ function renderProjects(){
   grid.innerHTML = projects.map((p) => {
     const images = p.images || [];
     const first = images[0] || "";
-    const description = String(p.description || "").replace(/[*_`#]/g,"").trim();
+    const shortDescription = getShortDescription(p.description, 180);
 
     return `
       <article class="project-card">
@@ -162,7 +182,7 @@ function renderProjects(){
         <div class="project-body">
           <div class="project-category">${esc(p.category || "Project")}</div>
           <h3>${esc(p.title || "Untitled Project")}</h3>
-          <p>${esc(description.length > 180 ? description.slice(0,177)+"..." : description)}</p>
+          <p>${esc(shortDescription)}</p>
           <div class="card-actions">
             ${p.demo ? `<a class="mini-btn" href="${esc(p.demo)}" target="_blank" rel="noopener noreferrer">🔗 Live Demo</a>` : ""}
             ${p.github ? `<a class="mini-btn" href="${esc(p.github)}" target="_blank" rel="noopener noreferrer">💻 GitHub</a>` : ""}
