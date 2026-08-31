@@ -17,6 +17,24 @@ const esc = (value="") => String(value).replace(/[&<>"']/g, c => ({
   "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
 }[c]));
 
+// Safe helpers: never throw if an element is missing from the page.
+// This keeps the rest of the site working even if one id is out of sync.
+function setText(id, value){
+  const el = $(id);
+  if(!el){ console.warn(`[portfolio] Element #${id} not found in HTML — skipping.`); return; }
+  el.textContent = value;
+}
+function setHTML(id, value){
+  const el = $(id);
+  if(!el){ console.warn(`[portfolio] Element #${id} not found in HTML — skipping.`); return; }
+  el.innerHTML = value;
+}
+function setAttr(id, attr, value){
+  const el = $(id);
+  if(!el){ console.warn(`[portfolio] Element #${id} not found in HTML — skipping.`); return; }
+  el[attr] = value;
+}
+
 function asset(path="") {
   // Keep relative assets working on Vercel/GitHub Pages even when names contain spaces.
   return encodeURI(String(path).replace(/^\.?\//, ""));
@@ -42,77 +60,81 @@ async function init(){
       DATA.certificates = DATA.certificates || [];
     }
 
-    renderProfile();
-    renderSkills();
-    renderExperience();
-    renderProjects();
-    renderCertificates();
-    renderDocuments();
-    renderEducation();
-    setupNavigation();
+    const steps = [renderProfile, renderSkills, renderExperience, renderProjects, renderCertificates, renderDocuments, renderEducation, setupNavigation];
+    for(const step of steps){
+      try{ step(); }
+      catch(stepErr){ console.error(`[portfolio] ${step.name} failed:`, stepErr); }
+    }
   }catch(err){
     console.error(err);
     const empty = $("projectsEmpty");
-    empty.classList.remove("hidden");
-    empty.textContent = "Portfolio data gagal dimuat. Pastikan site-data.json dan projects.json berada di folder utama.";
+    if(empty){
+      empty.classList.remove("hidden");
+      empty.textContent = "Portfolio data gagal dimuat. Pastikan site-data.json dan projects.json berada di folder utama.";
+    }
   }
 
-  setupLightbox();
-  setupMobileMenu();
+  try{ setupLightbox(); }catch(err){ console.error("[portfolio] setupLightbox failed:", err); }
+  try{ setupMobileMenu(); }catch(err){ console.error("[portfolio] setupMobileMenu failed:", err); }
 }
 
 function renderProfile(){
   const p = DATA.profile || {};
-  $("profileName").textContent = p.name || "";
-  $("profileHeadline").textContent = p.headline || "";
-  $("profileAbout").textContent = p.about || "";
-  $("aboutText").textContent = p.about || "";
-  $("university").textContent = p.university || "";
-  $("education").textContent = p.education || "";
-  $("educationPeriod").textContent = p.education_period ? `📅 ${p.education_period}` : "";
-  $("gpa").textContent = p.gpa || "";
-  $("thesis").textContent = p.thesis || "";
+  setText("profileName", p.name || "");
+  setText("profileHeadline", p.headline || "");
+  setText("profileAbout", p.about || "");
+  setText("aboutText", p.about || "");
+  setText("university", p.university || "");
+  setText("education", p.education || "");
+  setText("educationPeriod", p.education_period ? `📅 ${p.education_period}` : "");
+  setText("gpa", p.gpa || "");
+  setText("thesis", p.thesis || "");
 
-  if(p.whatsapp) $("whatsappLink").href = `https://wa.me/${String(p.whatsapp).replace(/\D/g,"")}`;
-  if(p.email) $("emailLink").href = `mailto:${p.email}`;
-  if(p.linkedin) $("linkedinLink").href = p.linkedin;
-  if(p.github) $("githubLink").href = p.github;
+  if(p.whatsapp) setAttr("whatsappLink", "href", `https://wa.me/${String(p.whatsapp).replace(/\D/g,"")}`);
+  if(p.email) setAttr("emailLink", "href", `mailto:${p.email}`);
+  if(p.linkedin) setAttr("linkedinLink", "href", p.linkedin);
+  if(p.github) setAttr("githubLink", "href", p.github);
 
   // Explicitly make profile image resilient.
   const profile = $("profileImage");
-  profile.src = asset("assets/profile.jpg");
-  profile.addEventListener("error", () => {
-    profile.style.display = "none";
-    $("profileFallback").style.display = "grid";
-  }, {once:true});
+  if(profile){
+    profile.src = asset("assets/profile.jpg");
+    profile.addEventListener("error", () => {
+      profile.style.display = "none";
+      const fb = $("profileFallback");
+      if(fb) fb.style.display = "grid";
+    }, {once:true});
+  }
 }
 
 function renderSkills(){
-  $("skills").innerHTML = (DATA.skills || []).map(s => `<span class="chip">${esc(s)}</span>`).join("");
-  $("personalSkills").innerHTML = (DATA.personalSkills || []).map(s => `<span class="chip">${esc(s)}</span>`).join("");
+  setHTML("skills", (DATA.skills || []).map(s => `<span class="chip">${esc(s)}</span>`).join(""));
+  setHTML("personalSkills", (DATA.personalSkills || []).map(s => `<span class="chip">${esc(s)}</span>`).join(""));
 }
 
 function renderExperience(){
-  $("experienceList").innerHTML = (DATA.experience || []).map(e => `
+  setHTML("experienceList", (DATA.experience || []).map(e => `
     <article class="timeline-item">
       <h3>${esc(e.role)}</h3>
       <div class="company">${esc(e.company)}</div>
       <div class="period">${esc(e.location)} · ${esc(e.period)}</div>
       <ul>${(e.description || []).map(d => `<li>${esc(d)}</li>`).join("")}</ul>
     </article>
-  `).join("");
+  `).join(""));
 }
 
 function renderProjects(){
   const projects = DATA.projects || [];
   const grid = $("projectsGrid");
+  const emptyEl = $("projectsEmpty");
 
   if(!projects.length){
-    $("projectsEmpty").classList.remove("hidden");
+    if(emptyEl) emptyEl.classList.remove("hidden");
     return;
   }
 
-  $("projectsEmpty").classList.add("hidden");
+  if(emptyEl) emptyEl.classList.add("hidden");
+  if(!grid) return;
   grid.innerHTML = projects.map((p) => {
     const images = p.images || [];
     const first = images[0] || "";
@@ -159,8 +181,9 @@ function renderCertificates(){
   const certificates = DATA.certificates || [];
   if(!certificates.length) return;
 
-  $("certificatesEmpty").classList.add("hidden");
-  $("certificatesGrid").innerHTML = certificates.map((c, i) => {
+  const emptyEl = $("certificatesEmpty");
+  if(emptyEl) emptyEl.classList.add("hidden");
+  setHTML("certificatesGrid", certificates.map((c, i) => {
     const src = typeof c === "string" ? c : c.src;
     const title = typeof c === "string" ? `Certificate ${i+1}` : (c.title || `Certificate ${i+1}`);
     return `
@@ -168,7 +191,7 @@ function renderCertificates(){
         <img src="${asset(src)}" alt="${esc(title)}" loading="lazy"
              onerror="this.style.opacity='.25'">
       </div>`;
-  }).join("");
+  }).join(""));
 
   document.querySelectorAll("[data-cert-index]").forEach(el => {
     el.addEventListener("click", () => {
@@ -185,7 +208,7 @@ function renderDocuments(){
     {title:"Academic Transcript", icon:"📊", description:"Official academic transcript and course grades.", path:"assets/transkrip_nilai.pdf", fileName:"Aditya_Nugroho_Academic_Transcript.pdf"}
   ];
 
-  $("documentsGrid").innerHTML = docs.map(d => `
+  setHTML("documentsGrid", docs.map(d => `
     <article class="document-card">
       <h3>${d.icon} ${esc(d.title)}</h3>
       <p>${esc(d.description)}</p>
@@ -194,7 +217,7 @@ function renderDocuments(){
         <a href="${asset(d.path)}" download="${esc(d.fileName)}">⬇️ Download</a>
       </div>
     </article>
-  `).join("");
+  `).join(""));
 }
 
 function renderEducation(){}
