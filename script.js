@@ -40,24 +40,55 @@ function asset(path="") {
   return encodeURI(String(path).replace(/^\.?\//, ""));
 }
 
-// Builds a clean, readable card summary from a project's full markdown description.
-// - Uses only the FIRST paragraph (stops before "🛠️ Methodology" / "🎯 Key Results" / etc.)
-// - Strips leftover markdown characters (*_`#)
-// - If still too long, truncates at the nearest whole word (never mid-word/mid-heading)
-function getShortDescription(raw, limit = 180){
+// Splits a project title like "📊 Finance Performance Branch Analysis" into
+// { icon: "📊", name: "Finance Performance Branch Analysis" }.
+// Falls back to no icon if the first token doesn't look like an emoji.
+function splitTitleIcon(title){
+  const trimmed = String(title || "").trim();
+  const spaceIdx = trimmed.indexOf(" ");
+  if(spaceIdx > 0){
+    const first = trimmed.slice(0, spaceIdx);
+    if(!/^[a-zA-Z0-9]+$/.test(first)){
+      return { icon: first, name: trimmed.slice(spaceIdx + 1).trim() };
+    }
+  }
+  return { icon: "", name: trimmed };
+}
+
+// Turns inline **bold** markers into <strong> after escaping the rest of the text.
+function inlineFormat(str){
+  return esc(str).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
+}
+
+// Renders a project's full markdown-lite description (as used in projects.json)
+// into structured HTML: section headings (e.g. "🛠️ **Methodology**"), bullet
+// lists ("- item"), and regular paragraphs — matching the DQLab-style write-up.
+function renderDescriptionHTML(raw){
   const text = String(raw || "").trim();
   if(!text) return "";
 
-  // Paragraphs are separated by a blank line in the source data.
-  let firstParagraph = text.split(/\n\s*\n/)[0] || text;
-  firstParagraph = firstParagraph.replace(/[*_`#]/g, "").trim();
+  const blocks = text.split(/\n\s*\n/).map(b => b.trim()).filter(Boolean);
 
-  if(firstParagraph.length <= limit) return firstParagraph;
+  return blocks.map(block => {
+    const lines = block.split("\n").map(l => l.trim()).filter(Boolean);
+    const isBulletList = lines.length > 0 && lines.every(l => l.startsWith("- "));
 
-  const truncated = firstParagraph.slice(0, limit);
-  const lastSpace = truncated.lastIndexOf(" ");
-  const clean = lastSpace > 40 ? truncated.slice(0, lastSpace) : truncated;
-  return clean.trim() + "…";
+    if(isBulletList){
+      return `<ul>${lines.map(l => `<li>${inlineFormat(l.slice(2))}</li>`).join("")}</ul>`;
+    }
+
+    // A heading block is a single line that is ENTIRELY "prefix **Bold Label**"
+    // (nothing after the closing **). This correctly excludes lines like
+    // "🛠️ **Tools:** Power BI, CSV..." which have trailing text.
+    const headingMatch = block.match(/^([^\n*]*)\*\*([^*]+)\*\*$/);
+    if(headingMatch){
+      const prefix = headingMatch[1].trim();
+      const label = headingMatch[2].trim();
+      return `<h4>${prefix ? `<span class="pw-emoji">${esc(prefix)}</span> ` : ""}${esc(label)}</h4>`;
+    }
+
+    return `<p>${inlineFormat(lines.join(" "))}</p>`;
+  }).join("");
 }
 
 async function loadJSON(url){
@@ -166,44 +197,47 @@ function renderProjects(){
 
   if(emptyEl) emptyEl.classList.add("hidden");
   if(!grid) return;
+
   grid.innerHTML = projects.map((p) => {
     const images = p.images || [];
-    const first = images[0] || "";
-    const shortDescription = getShortDescription(p.description, 180);
+    const { icon, name } = splitTitleIcon(p.title || "Untitled Project");
+    const bodyHTML = renderDescriptionHTML(p.description);
 
     return `
-      <article class="project-card">
-        <div class="project-thumb" data-gallery='${encodeURIComponent(JSON.stringify(images))}' data-title="${esc(p.title || "Project")}">
-          ${first
-            ? `<img src="${asset(first)}" alt="${esc(p.title || "Project")}" loading="lazy"
-                    onerror="this.closest('.project-thumb').innerHTML='<div class=&quot;empty-state&quot;>Image unavailable</div>'">`
-            : `<div class="empty-state">No project image</div>`}
-        </div>
-        <div class="project-body">
-          <div class="project-category">${esc(p.category || "Project")}</div>
-          <h3>${esc(p.title || "Untitled Project")}</h3>
-          <p>${esc(shortDescription)}</p>
+      <article class="project-writeup">
+        <header class="pw-head">
+          ${icon ? `<div class="pw-icon">${esc(icon)}</div>` : ""}
+          <div>
+            <h3>${esc(name)}</h3>
+            <div class="project-category">${esc(p.category || "Project")}</div>
+          </div>
+        </header>
+
+        <div class="pw-body">${bodyHTML}</div>
+
+        ${(p.demo || p.github) ? `
           <div class="card-actions">
             ${p.demo ? `<a class="mini-btn" href="${esc(p.demo)}" target="_blank" rel="noopener noreferrer">🔗 Live Demo</a>` : ""}
             ${p.github ? `<a class="mini-btn" href="${esc(p.github)}" target="_blank" rel="noopener noreferrer">💻 GitHub</a>` : ""}
-            ${images.length ? `<button type="button" class="mini-btn open-gallery" data-images='${encodeURIComponent(JSON.stringify(images))}' data-title="${esc(p.title || "Project")}">🖼️ Gallery · ${images.length}</button>` : ""}
-          </div>
-        </div>
+          </div>` : ""}
+
+        ${images.length ? `
+          <div class="pw-gallery" data-gallery='${encodeURIComponent(JSON.stringify(images))}' data-title="${esc(name)}">
+            ${images.slice(0, 4).map((img, i) => `
+              <div class="pw-gallery-item" data-index="${i}">
+                <img src="${asset(img)}" alt="${esc(name)} screenshot ${i+1}" loading="lazy"
+                     onerror="this.closest('.pw-gallery-item').style.display='none'">
+              </div>`).join("")}
+            ${images.length > 4 ? `<button type="button" class="mini-btn pw-more" data-index="4">🖼️ +${images.length - 4} more</button>` : ""}
+          </div>` : ""}
       </article>
     `;
   }).join("");
 
-  document.querySelectorAll(".project-thumb[data-gallery]").forEach(el => {
-    el.addEventListener("click", () => {
-      const imgs = JSON.parse(decodeURIComponent(el.dataset.gallery));
-      openLightbox(imgs, 0, el.dataset.title);
-    });
-  });
-
-  document.querySelectorAll(".open-gallery").forEach(el => {
-    el.addEventListener("click", () => {
-      const imgs = JSON.parse(decodeURIComponent(el.dataset.images));
-      openLightbox(imgs, 0, el.dataset.title);
+  document.querySelectorAll(".pw-gallery").forEach(el => {
+    const imgs = JSON.parse(decodeURIComponent(el.dataset.gallery));
+    el.querySelectorAll("[data-index]").forEach(item => {
+      item.addEventListener("click", () => openLightbox(imgs, Number(item.dataset.index), el.dataset.title));
     });
   });
 }
