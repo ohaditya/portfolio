@@ -9,9 +9,13 @@
 </head>
 <body>
   <aside class="sidebar" id="sidebar">
+    <button class="sidebar-collapse-btn" id="sidebarCollapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar">‹</button>
     <div class="brand">
-      <div class="brand-avatar">AN</div>
-      <div>
+      <div class="brand-avatar" id="brandAvatar">
+        <img id="brandAvatarImg" src="assets/profile.jpg" alt="Aditya Nugroho" onerror="this.style.display='none'">
+        <span id="brandAvatarFallback">AN</span>
+      </div>
+      <div class="brand-text">
         <strong>Aditya Nugroho</strong>
         <span>Data & Finance Portfolio</span>
       </div>
@@ -34,6 +38,7 @@
   </aside>
 
   <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+  <button class="sidebar-expand-btn hidden" id="sidebarExpandBtn" aria-label="Expand sidebar" title="Expand sidebar">☰</button>
 
   <main class="main">
     <section id="home" class="section hero-section">
@@ -139,15 +144,18 @@
       <div class="education-card">
         <div class="edu-icon">🎓</div>
         <div>
-          <h3 id="university"></h3>
-          <p id="education"></p>
-          <p id="educationPeriod"></p>
-          <div class="gpa">GPA <strong id="gpa"></strong></div>
+          <h3 id="education"></h3>
+          <p class="edu-university" id="university"></p>
+          <div class="edu-meta">
+            <span class="edu-badge" id="educationPeriod"></span>
+            <span class="edu-badge edu-badge-accent">GPA <strong id="gpa"></strong></span>
+          </div>
         </div>
       </div>
       <div class="content-card">
         <div class="section-label">THESIS</div>
         <h3 id="thesis"></h3>
+        <p class="thesis-note">Implemented and compared Linear Regression and Support Vector Machine (SVM) models for XAUUSD closing price prediction on the MetaTrader 4 platform, evaluated across 80:20, 70:30, and 60:40 train/test splits using RMSE.</p>
       </div>
       <div class="content-card">
         <div class="section-label">LANGUAGES</div>
