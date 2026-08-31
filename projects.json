@@ -14,7 +14,7 @@
     {
       "title": "🏦 Treasury & Wealth Management System",
       "category": "Finance / Web Application",
-      "description": "Developed a personal Treasury & Wealth Management System using Python and Streamlit to simulate financial transaction monitoring and customer portfolio analysis.\n\n🛠️ **Methodology**\n\nThe system was developed using Python and Streamlit, with simulated financial data and an interactive dashboard architecture.\n\n**Key Features:**\n\n- 💰 Treasury transaction dashboard\n- 📊 Customer portfolio analysis\n- 💱 Currency and product exposure monitoring\n- 🚦 Internal limit monitoring\n- 📝 Transaction management\n- 📂 Excel/CSV data import\n- 🔐 Role-based access control\n- 📈 Interactive financial analytics\n\n🎯 **Key Results**\n\nThe system integrates financial business logic, transaction monitoring, portfolio analysis, and interactive data visualization into a single application.\n\nIt also supports Excel/CSV data import and simulated transaction processing to demonstrate a practical financial analytics workflow.\n\n💡 **Conclusion**\n\nThis project demonstrates the integration of financial business logic, data analytics, and dashboard development using Python and Streamlit to support financial monitoring and data-driven decision-making.\n\n🛠️ **Tools:** Python, Streamlit, Pandas, Plotly, SQLite, OpenPyXL",
+      "description": "Developed a personal Treasury & Wealth Management System using Python and Streamlit to simulate financial transaction monitoring and customer portfolio analysis.\n\n🛠️ **Methodology**\n\nThe system was built with Python and Streamlit using simulated financial data, combining a treasury business-logic engine with an interactive dashboard architecture. Key features include:\n\n- 💰 Treasury transaction dashboard\n- 📊 Customer portfolio analysis\n- 💱 Currency and product exposure monitoring\n- 🚦 Internal limit monitoring\n- 📝 Transaction management\n- 📂 Excel/CSV data import\n- 🔐 Role-based access control\n- 📈 Interactive financial analytics\n\n🎯 **Key Results**\n\n- 🖥️ **Unified Platform:** Integrated financial business logic, transaction monitoring, portfolio analysis, and interactive data visualization into a single application.\n- 📂 **Practical Workflow:** Supports Excel/CSV data import and simulated transaction processing to demonstrate a practical financial analytics workflow.\n\n💡 **Conclusion**\n\nThis project demonstrates the integration of financial business logic, data analytics, and dashboard development using Python and Streamlit to support financial monitoring and data-driven decision-making.\n\n🛠️ **Tools:** Python, Streamlit, Pandas, Plotly, SQLite, OpenPyXL",
       "images": [
         "projects/treasury/images/dashboard.png",
         "projects/treasury/images/limit-monitoring.png",
@@ -67,77 +67,23 @@
     }
   ],
   "certificates": [
-    {
-      "title": "Sertifikat Aditya Nugroho page-0001",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0001.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0002",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0002.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0003",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0003.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0004",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0004.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0005",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0005.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0006",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0006.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0007",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0007.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0008",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0008.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0009",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0009.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0010",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0010.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0011",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0011.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0012",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0012.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0013",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0013.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0014",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0014.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0015",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0015.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0016",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0016.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0017",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0017.jpg"
-    },
-    {
-      "title": "Sertifikat Aditya Nugroho page-0018",
-      "src": "certificates/Sertifikat Aditya Nugroho_page-0018.jpg"
-    }
+    { "title": "Sertifikat Aditya Nugroho page-0001", "src": "certificates/Sertifikat Aditya Nugroho_page-0001.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0002", "src": "certificates/Sertifikat Aditya Nugroho_page-0002.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0003", "src": "certificates/Sertifikat Aditya Nugroho_page-0003.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0004", "src": "certificates/Sertifikat Aditya Nugroho_page-0004.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0005", "src": "certificates/Sertifikat Aditya Nugroho_page-0005.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0006", "src": "certificates/Sertifikat Aditya Nugroho_page-0006.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0007", "src": "certificates/Sertifikat Aditya Nugroho_page-0007.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0008", "src": "certificates/Sertifikat Aditya Nugroho_page-0008.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0009", "src": "certificates/Sertifikat Aditya Nugroho_page-0009.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0010", "src": "certificates/Sertifikat Aditya Nugroho_page-0010.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0011", "src": "certificates/Sertifikat Aditya Nugroho_page-0011.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0012", "src": "certificates/Sertifikat Aditya Nugroho_page-0012.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0013", "src": "certificates/Sertifikat Aditya Nugroho_page-0013.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0014", "src": "certificates/Sertifikat Aditya Nugroho_page-0014.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0015", "src": "certificates/Sertifikat Aditya Nugroho_page-0015.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0016", "src": "certificates/Sertifikat Aditya Nugroho_page-0016.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0017", "src": "certificates/Sertifikat Aditya Nugroho_page-0017.jpg" },
+    { "title": "Sertifikat Aditya Nugroho page-0018", "src": "certificates/Sertifikat Aditya Nugroho_page-0018.jpg" }
   ]
 }
