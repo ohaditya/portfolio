@@ -76,6 +76,7 @@ async function init(){
 
   try{ setupLightbox(); }catch(err){ console.error("[portfolio] setupLightbox failed:", err); }
   try{ setupMobileMenu(); }catch(err){ console.error("[portfolio] setupMobileMenu failed:", err); }
+  try{ setupSidebarCollapse(); }catch(err){ console.error("[portfolio] setupSidebarCollapse failed:", err); }
 }
 
 function renderProfile(){
@@ -235,6 +236,27 @@ function setupNavigation(){
   }, {rootMargin:"-35% 0px -55% 0px", threshold:0});
 
   sections.forEach(s => observer.observe(s));
+}
+
+function setupSidebarCollapse(){
+  const collapseBtn = $("sidebarCollapseBtn");
+  const expandBtn = $("sidebarExpandBtn");
+  const sidebar = $("sidebar");
+  if(!sidebar) return;
+
+  const collapse = () => {
+    sidebar.classList.add("collapsed");
+    document.body.classList.add("sidebar-collapsed");
+    if(expandBtn) expandBtn.classList.remove("hidden");
+  };
+  const expand = () => {
+    sidebar.classList.remove("collapsed");
+    document.body.classList.remove("sidebar-collapsed");
+    if(expandBtn) expandBtn.classList.add("hidden");
+  };
+
+  if(collapseBtn) collapseBtn.addEventListener("click", collapse);
+  if(expandBtn) expandBtn.addEventListener("click", expand);
 }
 
 function setupMobileMenu(){
