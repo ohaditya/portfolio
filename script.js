@@ -134,7 +134,6 @@ function renderProfile(){
   const p = DATA.profile || {};
   setText("profileName", p.name || "");
   setText("profileHeadline", p.headline || "");
-  setText("profileAbout", p.about || "");
   setText("aboutText", p.about || "");
   setText("university", p.university || "");
   setText("educationDegree", p.education || "");
