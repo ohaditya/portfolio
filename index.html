@@ -12,7 +12,7 @@
     <button class="sidebar-collapse-btn" id="sidebarCollapseBtn" aria-label="Collapse sidebar" title="Collapse sidebar">‹</button>
     <div class="brand">
       <div class="brand-avatar" id="brandAvatar">
-        <img id="brandAvatarImg" src="assets/profile.jpg" alt="Aditya Nugroho" onerror="this.style.display='none'">
+        <img id="brandAvatarImg" src="assets/profile.jpg" alt="Aditya Nugroho" onerror="this.style.display='none'; document.getElementById('brandAvatarFallback').style.display='grid'">
         <span id="brandAvatarFallback">AN</span>
       </div>
       <div class="brand-text">
@@ -141,25 +141,30 @@
           <h2>Education</h2>
         </div>
       </div>
-      <div class="education-card">
-        <div class="edu-icon">🎓</div>
-        <div>
-          <h3 id="education"></h3>
-          <p class="edu-university" id="university"></p>
-          <div class="edu-meta">
-            <span class="edu-badge" id="educationPeriod"></span>
-            <span class="edu-badge edu-badge-accent">GPA <strong id="gpa"></strong></span>
+      <div class="content-card education-card-v2">
+        <h1 id="university"></h1>
+        <h2 class="edu-degree"><span id="education"></span><span id="educationLinkWrap" class="edu-link-icon hidden">🔗</span></h2>
+        <div class="edu-meta">
+          <span class="edu-badge">📅 <span id="educationPeriod"></span></span>
+          <span class="edu-badge edu-badge-accent">🎓 GPA: <strong id="gpa"></strong></span>
+        </div>
+
+        <hr class="edu-divider">
+
+        <div class="edu-block">
+          <h2>Thesis</h2>
+          <p class="thesis-note">Implemented and compared Linear Regression and Support Vector Machine (SVM) methods for XAUUSD Closing Price Prediction on the MetaTrader 4 platform, evaluated across 80:20, 70:30, and 60:40 train/test splits using RMSE.</p>
+        </div>
+
+        <hr class="edu-divider">
+
+        <div class="edu-block">
+          <h2>Languages</h2>
+          <div class="language-list-v2">
+            <span>🇮🇩 Indonesian</span>
+            <span>🇬🇧 English</span>
           </div>
         </div>
-      </div>
-      <div class="content-card">
-        <div class="section-label">THESIS</div>
-        <h3 id="thesis"></h3>
-        <p class="thesis-note">Implemented and compared Linear Regression and Support Vector Machine (SVM) models for XAUUSD closing price prediction on the MetaTrader 4 platform, evaluated across 80:20, 70:30, and 60:40 train/test splits using RMSE.</p>
-      </div>
-      <div class="content-card">
-        <div class="section-label">LANGUAGES</div>
-        <div class="language-list"><span>🇮🇩 Indonesian</span><span>🇬🇧 English</span></div>
       </div>
     </section>
 
