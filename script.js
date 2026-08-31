@@ -86,7 +86,7 @@ function renderProfile(){
   setText("profileAbout", p.about || "");
   setText("aboutText", p.about || "");
   setText("university", p.university || "");
-  setText("education", p.education || "");
+  setText("educationDegree", p.education || "");
   setText("educationPeriod", p.education_period || "");
   setText("gpa", p.gpa || "");
 
