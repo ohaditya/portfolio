@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Aditya Nugroho | Data Analyst | Financial Analysis | Machine Learning">
+  <title>Aditya Nugroho | Data & Finance Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-avatar">AN</div>
+      <div>
+        <strong>Aditya Nugroho</strong>
+        <span>Data & Finance Portfolio</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav" aria-label="Portfolio navigation">
+      <a href="#home" class="nav-link active">🏠 <span>Home</span></a>
+      <a href="#projects" class="nav-link">📁 <span>Projects</span></a>
+      <a href="#experience" class="nav-link">💼 <span>Experience</span></a>
+      <a href="#certificates" class="nav-link">🏆 <span>Certificates</span></a>
+      <a href="#documents" class="nav-link">📄 <span>Documents</span></a>
+      <a href="#education" class="nav-link">🎓 <span>Education</span></a>
+      <a href="#contact" class="nav-link">📬 <span>Contact</span></a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <span>© 2026</span>
+      <span>Aditya Nugroho</span>
+    </div>
+  </aside>
+
+  <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+
+  <main class="main">
+    <section id="home" class="section hero-section">
+      <div class="hero-grid">
+        <div class="profile-wrap">
+          <img id="profileImage" class="profile-image" src="assets/profile.jpg" alt="Aditya Nugroho" loading="eager">
+          <div id="profileFallback" class="profile-fallback">AN</div>
+        </div>
+        <div class="hero-copy">
+          <div class="eyebrow">DATA • FINANCE • MACHINE LEARNING</div>
+          <h1 id="profileName">Aditya Nugroho</h1>
+          <h2 id="profileHeadline">Data Analyst | Financial Analysis | Machine Learning</h2>
+          <p id="profileAbout"></p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">Explore Projects ↓</a>
+            <a class="btn secondary" href="assets/cv.pdf" target="_blank" rel="noopener noreferrer">📄 View CV</a>
+            <a class="btn secondary" href="https://github.com/ohaditya" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
+            <a class="btn secondary" href="#contact">Let's Connect</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card"><span>Financial Instruments</span><strong>71</strong></div>
+        <div class="stat-card"><span>ATM Daily</span><strong>40+</strong></div>
+        <div class="stat-card"><span>Daily Transaction</span><strong>&gt; IDR 25B</strong></div>
+        <div class="stat-card"><span>GPA</span><strong>3.62</strong></div>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label">ABOUT ME</div>
+        <h3>Turning data into actionable insights.</h3>
+        <p id="aboutText"></p>
+      </div>
+
+      <div class="content-card">
+        <div class="section-label">TECHNICAL SKILLS</div>
+        <div id="skills" class="chips"></div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="section-heading">
+        <div>
+          <div class="section-label">PORTFOLIO</div>
+          <h2>Featured Projects</h2>
+          <p>Selected projects in finance, data analysis, and machine learning.</p>
+        </div>
+      </div>
+      <div id="projectsGrid" class="projects-grid"></div>
+      <div id="projectsEmpty" class="empty-state hidden">
+        Add your project folders and project manifest to display your projects here.
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="section-heading">
+        <div>
+          <div class="section-label">CAREER</div>
+          <h2>Professional Experience</h2>
+        </div>
+      </div>
+      <div id="experienceList" class="timeline"></div>
+
+      <div class="content-card">
+        <div class="section-label">PERSONAL SKILLS</div>
+        <div id="personalSkills" class="chips"></div>
+      </div>
+    </section>
+
+    <section id="certificates" class="section">
+      <div class="section-heading">
+        <div>
+          <div class="section-label">ACHIEVEMENTS</div>
+          <h2>Certificates</h2>
+          <p>Professional certificates and learning achievements.</p>
+        </div>
+      </div>
+      <div id="certificatesGrid" class="gallery-grid"></div>
+      <div id="certificatesEmpty" class="empty-state">
+        Put certificate images in <code>certificates/</code> and list them in <code>site-data.json</code>.
+      </div>
+    </section>
+
+    <section id="documents" class="section">
+      <div class="section-heading">
+        <div>
+          <div class="section-label">DOCUMENTS</div>
+          <h2>Documents</h2>
+          <p>Professional and academic documents in PDF format.</p>
+        </div>
+      </div>
+      <div id="documentsGrid" class="documents-grid"></div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="section-heading">
+        <div>
+          <div class="section-label">ACADEMIC BACKGROUND</div>
+          <h2>Education</h2>
+        </div>
+      </div>
+      <div class="education-card">
+        <div class="edu-icon">🎓</div>
+        <div>
+          <h3 id="university"></h3>
+          <p id="education"></p>
+          <p id="educationPeriod"></p>
+          <div class="gpa">GPA <strong id="gpa"></strong></div>
+        </div>
+      </div>
+      <div class="content-card">
+        <div class="section-label">THESIS</div>
+        <h3 id="thesis"></h3>
+      </div>
+      <div class="content-card">
+        <div class="section-label">LANGUAGES</div>
+        <div class="language-list"><span>🇮🇩 Indonesian</span><span>🇬🇧 English</span></div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section">
+      <div class="section-heading">
+        <div>
+          <div class="section-label">GET IN TOUCH</div>
+          <h2>Let's Connect</h2>
+          <p>Interested in my background, projects, or potential collaboration? Feel free to reach out.</p>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div class="content-card">
+          <div class="section-label">CONTACT</div>
+          <h3>Let's talk.</h3>
+          <a class="contact-link" id="whatsappLink" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a class="contact-link" id="emailLink">✉️ Email</a>
+        </div>
+        <div class="content-card">
+          <div class="section-label">PROFESSIONAL</div>
+          <h3>Find me online.</h3>
+          <a class="contact-link" id="linkedinLink" target="_blank" rel="noopener">💼 LinkedIn</a>
+          <a class="contact-link" id="githubLink" target="_blank" rel="noopener">💻 GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>Aditya Nugroho · Data Analyst · Financial Analysis · Machine Learning</footer>
+  </main>
+
+  <!-- Universal image popup -->
+  <div class="lightbox hidden" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+    <div class="lightbox-stage" id="lightboxStage">
+      <img id="lightboxImage" alt="">
+    </div>
+    <div class="lightbox-toolbar">
+      <button id="zoomOut">−</button>
+      <button id="zoomReset">⟳</button>
+      <button id="zoomIn">+</button>
+      <span id="lightboxCounter"></span>
+    </div>
+    <button class="lightbox-arrow left" id="lightboxPrev" aria-label="Previous">‹</button>
+    <button class="lightbox-arrow right" id="lightboxNext" aria-label="Next">›</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

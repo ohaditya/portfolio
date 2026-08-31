@@ -1,0 +1,143 @@
+{
+  "projects": [
+    {
+      "title": "📊 Finance Performance Branch Analysis",
+      "category": "Financial Analysis / Data Analytics",
+      "description": "Conducted a branch financial performance analysis using Power BI to evaluate disbursement performance and identify performance differences across branch age groups in May 2020.\n\n🛠️ **Methodology**\n\nThe project utilized Power BI to analyze branch-level financial data and compare disbursement performance across three branch age groups:\n\n- 📊 0–1 month\n- 📊 2–3 months\n- 📊 4+ months\n\nThe analysis focused on total disbursement, average disbursement, branch-level performance, and identification of underperforming branches.\n\n🎯 **Key Results**\n\n- 🥇 **Highest Branch Disbursement:** Branch AB achieved approximately IDR 270 million.\n- 📈 **Highest Average Performance:** Branches aged 4+ months recorded the highest average disbursement at approximately IDR 260 million per branch.\n- ⚠️ **Underperforming Branches:** The analysis identified AV (0–1 month), AL (2–3 months), and AD (4+ months) as underperforming branches within their respective age groups.\n\n💡 **Conclusion**\n\nThe findings provide business insights for improving branch performance through targeted monitoring of low-performing branches, evaluation of performance gaps, and establishment of performance benchmarks based on branch age.\n\nThe project includes an interactive Power BI dashboard, dataset, analysis documentation, and project files available through GitHub.\n\n🛠️ **Tools:** Power BI, CSV, Data Analysis, Data Visualization",
+      "images": [
+        "projects/finance-branch/images/Finance Performance Branch Analysis_page-0001.jpg",
+        "projects/finance-branch/images/Finance Performance Branch Analysis_page-0002.jpg"
+      ],
+      "demo": "",
+      "github": "https://github.com/ohaditya/dqlab-finance-branch-performance"
+    },
+    {
+      "title": "🏦 Treasury & Wealth Management System",
+      "category": "Finance / Web Application",
+      "description": "Developed a personal Treasury & Wealth Management System using Python and Streamlit to simulate financial transaction monitoring and customer portfolio analysis.\n\n🛠️ **Methodology**\n\nThe system was developed using Python and Streamlit, with simulated financial data and an interactive dashboard architecture.\n\n**Key Features:**\n\n- 💰 Treasury transaction dashboard\n- 📊 Customer portfolio analysis\n- 💱 Currency and product exposure monitoring\n- 🚦 Internal limit monitoring\n- 📝 Transaction management\n- 📂 Excel/CSV data import\n- 🔐 Role-based access control\n- 📈 Interactive financial analytics\n\n🎯 **Key Results**\n\nThe system integrates financial business logic, transaction monitoring, portfolio analysis, and interactive data visualization into a single application.\n\nIt also supports Excel/CSV data import and simulated transaction processing to demonstrate a practical financial analytics workflow.\n\n💡 **Conclusion**\n\nThis project demonstrates the integration of financial business logic, data analytics, and dashboard development using Python and Streamlit to support financial monitoring and data-driven decision-making.\n\n🛠️ **Tools:** Python, Streamlit, Pandas, Plotly, SQLite, OpenPyXL",
+      "images": [
+        "projects/treasury/images/dashboard.png",
+        "projects/treasury/images/limit-monitoring.png",
+        "projects/treasury/images/portfolio.png",
+        "projects/treasury/images/reports.png"
+      ],
+      "demo": "https://aditya-treasury-wealth-management-portfolio.streamlit.app/",
+      "github": "https://github.com/ohaditya/aditya-treasury-wealth-management-portfolio"
+    },
+    {
+      "title": "📈 XAUUSD Closing Price Analysis & Prediction",
+      "category": "Financial Analysis / Machine Learning",
+      "description": "Conducted a XAUUSD (Gold) closing price analysis and prediction project using historical market data to improve price prediction beyond the technical analysis tools available in MetaTrader 4 (MT4).\n\n🛠️ **Methodology**\n\nThe project utilized RapidMiner and applied two machine learning algorithms:\n\n- 📈 Linear Regression\n- 🤖 Support Vector Machine (SVM)\n\nThree training-testing split ratios were evaluated:\n\n- 📊 80:20\n- 📊 70:30\n- 📊 60:40\n\nModel performance was evaluated using Root Mean Square Error (RMSE) to compare prediction accuracy.\n\n🎯 **Key Results**\n\n- 🥇 **Linear Regression:** Best RMSE of 8.744 using a 70:30 split.\n- 📉 **SVM:** Best RMSE of 10.318 using an 80:20 split.\n- 🏆 **Best Model:** Linear Regression achieved a lower prediction error than SVM.\n\n💡 **Conclusion**\n\nThe results demonstrate that integrating Machine Learning and external data analysis tools can provide a more measurable approach to XAUUSD price prediction and support data-driven trading decisions.\n\n🛠️ **Tools:** RapidMiner, Linear Regression, Support Vector Machine (SVM), RMSE, MetaTrader 4, Machine Learning",
+      "images": [
+        "projects/xauusd/images/1. Proses Eksplorasi Data.png",
+        "projects/xauusd/images/10. Hasil Proses Remove Duplicate.png",
+        "projects/xauusd/images/11. Proses Transform Nominal To Date.png",
+        "projects/xauusd/images/12. Hasil Proses Transform Nominal To Date.png",
+        "projects/xauusd/images/13. Proses Pelabelan Kolom.png",
+        "projects/xauusd/images/14. Hasil Proses Pelabelan Kolom.png",
+        "projects/xauusd/images/15. Proses Split Data.png",
+        "projects/xauusd/images/16. Hasil Proses Split Data.png",
+        "projects/xauusd/images/17. Pemodelan Regresi Linear.png",
+        "projects/xauusd/images/18. Hasil Proses Regresi Linear 80 20.png",
+        "projects/xauusd/images/19. Grafik Hasil Split Data 80 20 Regresi Linear.png",
+        "projects/xauusd/images/2. Proses Crawling Data.png",
+        "projects/xauusd/images/20. Hasil Proses Regresi Linear 70 30.png",
+        "projects/xauusd/images/21. Grafik Hasil Split Data 70 30 Regresi Linear.png",
+        "projects/xauusd/images/22. Hasil Proses Regresi Linear 60 40.png",
+        "projects/xauusd/images/23. Grafik Hasil Split Data 60 40 LInear Regression.png",
+        "projects/xauusd/images/24. Pemodelan Support Vector Machine.png",
+        "projects/xauusd/images/25. Hasil Proses Support Vector Machine 80 20.png",
+        "projects/xauusd/images/26. Grafik Hasil Split Data 8020 Support Vector Machine.png",
+        "projects/xauusd/images/27. Hasil Proses Support Vector Machine 7030.png",
+        "projects/xauusd/images/28. Grafik Hasil Split Data 70 30 Support Vector Machine.png",
+        "projects/xauusd/images/29. Hasil Proses Support Vector Machine 60 40.png",
+        "projects/xauusd/images/3. Hasil Proses Crawling.png",
+        "projects/xauusd/images/30. Grafik Hasil Split Data 60 40 Support Vector Machine.png",
+        "projects/xauusd/images/31. Hasil Evaluasi.png",
+        "projects/xauusd/images/32 Overfitting.png",
+        "projects/xauusd/images/4. Proses Pemeriksaan Data.png",
+        "projects/xauusd/images/5. Proses Pembersihan Data Yang tidak Digunakan.png",
+        "projects/xauusd/images/6. Hasil Proses Pembersihan Data Yang tidak Digunakan.png",
+        "projects/xauusd/images/7. Proses Missing Values.png",
+        "projects/xauusd/images/8. Hasil Proses Missing Values.png",
+        "projects/xauusd/images/9. Proses Remove Duplicate.png"
+      ],
+      "demo": "",
+      "github": ""
+    }
+  ],
+  "certificates": [
+    {
+      "title": "Sertifikat Aditya Nugroho page-0001",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0001.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0002",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0002.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0003",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0003.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0004",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0004.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0005",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0005.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0006",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0006.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0007",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0007.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0008",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0008.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0009",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0009.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0010",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0010.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0011",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0011.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0012",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0012.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0013",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0013.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0014",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0014.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0015",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0015.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0016",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0016.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0017",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0017.jpg"
+    },
+    {
+      "title": "Sertifikat Aditya Nugroho page-0018",
+      "src": "certificates/Sertifikat Aditya Nugroho_page-0018.jpg"
+    }
+  ]
+}

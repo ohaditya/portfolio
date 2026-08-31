@@ -1,0 +1,9 @@
+{
+  "title": "📊 Finance Performance Branch Analysis",
+
+  "description": "Conducted a branch financial performance analysis using Power BI to evaluate disbursement performance and identify performance differences across branch age groups in May 2020.\n\n🛠️ **Methodology**\n\nThe project utilized Power BI to analyze branch-level financial data and compare disbursement performance across three branch age groups:\n\n- 📊 0–1 month\n- 📊 2–3 months\n- 📊 4+ months\n\nThe analysis focused on total disbursement, average disbursement, branch-level performance, and identification of underperforming branches.\n\n🎯 **Key Results**\n\n- 🥇 **Highest Branch Disbursement:** Branch AB achieved approximately IDR 270 million.\n- 📈 **Highest Average Performance:** Branches aged 4+ months recorded the highest average disbursement at approximately IDR 260 million per branch.\n- ⚠️ **Underperforming Branches:** The analysis identified AV (0–1 month), AL (2–3 months), and AD (4+ months) as underperforming branches within their respective age groups.\n\n💡 **Conclusion**\n\nThe findings provide business insights for improving branch performance through targeted monitoring of low-performing branches, evaluation of performance gaps, and establishment of performance benchmarks based on branch age.\n\nThe project includes an interactive Power BI dashboard, dataset, analysis documentation, and project files available through GitHub.\n\n🛠️ **Tools:** Power BI, CSV, Data Analysis, Data Visualization",
+
+  "category": "Financial Analysis / Data Analytics",
+
+  "github": "https://github.com/ohaditya/dqlab-finance-branch-performance"
+}

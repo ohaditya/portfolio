@@ -1,0 +1,85 @@
+{
+  "profile": {
+    "name": "Aditya Nugroho",
+    "headline": "Data Analyst | Financial Analysis | Machine Learning",
+    "location": "Depok, Indonesia",
+    "about": "Informatics Engineering graduate with a GPA of 3.62 and professional experience in Finance, Data Analysis, and Financial Market Analysis.\n\nExperienced in Python, SQL, Pandas, Data Cleaning, Exploratory Data Analysis (EDA), Data Visualization, Machine Learning, and Risk Analysis to process data and generate insights that support decision-making.\n\nExperienced in analyzing 71 financial instruments and handling high-volume financial transactions exceeding IDR 15 billion per day, with transaction monitoring exceeding IDR 25 billion per day.",
+    "education": "Bachelor of Informatics Engineering",
+    "university": "Universitas Pamulang",
+    "education_period": "2020 – 2024",
+    "gpa": "3.62",
+    "thesis": "Implementation of Linear Regression and Support Vector Machine Methods for XAUUSD Closing Price Prediction on the MetaTrader 4 Platform",
+    "whatsapp": "6282298373159",
+    "email": "adityakantata@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/adityaforex",
+    "github": "https://github.com/ohaditya"
+  },
+  "skills": [
+    "Python",
+    "Pandas",
+    "SQL",
+    "Data Cleaning",
+    "EDA",
+    "Data Visualization",
+    "Machine Learning",
+    "Linear Regression",
+    "Logistic Regression",
+    "Support Vector Machine",
+    "Feature Engineering",
+    "Model Evaluation",
+    "Financial Analysis",
+    "Risk Analysis",
+    "Cash Reconciliation",
+    "Financial Transaction Monitoring",
+    "Microsoft Excel",
+    "Power BI",
+    "RapidMiner",
+    "TradingView",
+    "MetaTrader 4 & 5"
+  ],
+  "personalSkills": [
+    "Analytical Thinking",
+    "Attention to Detail",
+    "Problem Solving",
+    "Accuracy & Accountability",
+    "Teamwork & Collaboration"
+  ],
+  "experience": [
+    {
+      "role": "Foreign Exchange Specialist",
+      "company": "PT. Yukinvest Finansial Partner",
+      "location": "Jakarta",
+      "period": "January 2025 – January 2026",
+      "description": [
+        "Analyzed 71 financial instruments covering Forex, precious metals, global index futures, crude oil, and US stocks to support trading decisions and client risk management.",
+        "Prepared market reports and delivered market insights to clients on a regular basis.",
+        "Provided education and seminars covering trading strategies, risk management, and financial products to 80 clients."
+      ]
+    },
+    {
+      "role": "Technical Analyst",
+      "company": "PT. IDS Kapital Berjangka",
+      "location": "Jakarta",
+      "period": "January 2020 – February 2021",
+      "description": [
+        "Monitored and analyzed 50 foreign currency instruments using technical analysis to support risk assessment and decision-making.",
+        "Prepared market analysis reports and recommendations regarding price movements.",
+        "Conducted Forex education and seminars for 20 clients."
+      ]
+    },
+    {
+      "role": "ATM Cassette Restocking",
+      "company": "PT. Swadharma Sarana Informatika",
+      "location": "Jakarta",
+      "period": "February 2019 – November 2019",
+      "description": [
+        "Restocked cash for more than 40 ATMs every day according to company operational standards.",
+        "Performed cash sorting, counting, and transaction data entry involving cash exceeding IDR 15 billion per day.",
+        "Recorded and monitored cash inflows and outflows at the vault with total transaction values exceeding IDR 25 billion per day.",
+        "Performed reconciliation between physical cash and system records to ensure transaction accuracy."
+      ]
+    }
+  ],
+  "projects": [],
+  "certificates": []
+}

@@ -1,0 +1,11 @@
+{
+  "title": "🏦 Treasury & Wealth Management System",
+
+  "description": "Developed a personal Treasury & Wealth Management System using Python and Streamlit to simulate financial transaction monitoring and customer portfolio analysis.\n\n🛠️ **Methodology**\n\nThe system was developed using Python and Streamlit, with simulated financial data and an interactive dashboard architecture.\n\n**Key Features:**\n\n- 💰 Treasury transaction dashboard\n- 📊 Customer portfolio analysis\n- 💱 Currency and product exposure monitoring\n- 🚦 Internal limit monitoring\n- 📝 Transaction management\n- 📂 Excel/CSV data import\n- 🔐 Role-based access control\n- 📈 Interactive financial analytics\n\n🎯 **Key Results**\n\nThe system integrates financial business logic, transaction monitoring, portfolio analysis, and interactive data visualization into a single application.\n\nIt also supports Excel/CSV data import and simulated transaction processing to demonstrate a practical financial analytics workflow.\n\n💡 **Conclusion**\n\nThis project demonstrates the integration of financial business logic, data analytics, and dashboard development using Python and Streamlit to support financial monitoring and data-driven decision-making.\n\n🛠️ **Tools:** Python, Streamlit, Pandas, Plotly, SQLite, OpenPyXL",
+
+  "category": "Finance / Web Application",
+
+  "demo": "https://aditya-treasury-wealth-management-portfolio.streamlit.app/",
+
+  "github": "https://github.com/ohaditya/aditya-treasury-wealth-management-portfolio"
+}
