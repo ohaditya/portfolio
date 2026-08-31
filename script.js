@@ -87,9 +87,19 @@ function renderProfile(){
   setText("aboutText", p.about || "");
   setText("university", p.university || "");
   setText("education", p.education || "");
-  setText("educationPeriod", p.education_period ? `📅 ${p.education_period}` : "");
+  setText("educationPeriod", p.education_period || "");
   setText("gpa", p.gpa || "");
-  setText("thesis", p.thesis || "");
+
+  const eduLinkEl = $("educationLinkWrap");
+  if(eduLinkEl){
+    if(p.university_link){
+      eduLinkEl.classList.remove("hidden");
+      eduLinkEl.onclick = () => window.open(p.university_link, "_blank", "noopener");
+      eduLinkEl.style.cursor = "pointer";
+    } else {
+      eduLinkEl.classList.add("hidden");
+    }
+  }
 
   if(p.whatsapp) setAttr("whatsappLink", "href", `https://wa.me/${String(p.whatsapp).replace(/\D/g,"")}`);
   if(p.email) setAttr("emailLink", "href", `mailto:${p.email}`);
